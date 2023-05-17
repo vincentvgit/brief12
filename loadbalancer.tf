@@ -1,4 +1,5 @@
 
+#creation of public ip
  resource "azurerm_public_ip" "test" {
    name                         = "publicIPForLB"
    location                     = azurerm_resource_group.test.location
@@ -6,6 +7,7 @@
    allocation_method            = "Static"
  }
 
+#creation of loadbalancer
  resource "azurerm_lb" "test" {
    name                = "loadBalancer"
    location            = azurerm_resource_group.test.location
@@ -24,7 +26,7 @@
 
  
 
-
+#creation of availability set
  resource "azurerm_availability_set" "avset" {
    name                         = "avset"
    location                     = azurerm_resource_group.test.location
