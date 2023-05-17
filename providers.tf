@@ -1,3 +1,4 @@
+#my provider
 terraform {
 
    required_version = ">=0.12"
@@ -14,6 +15,7 @@ terraform {
    features {}
  }
 
+#my existing resource group
  resource "azurerm_resource_group" "test" {
    name     = "vincent-ResGrp"
    location = "francecentral"
