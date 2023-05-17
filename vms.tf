@@ -1,13 +1,13 @@
  
- #les ressources pour mes vms
-
+ #resources for my vms
+ #creation of the virtual network
  resource "azurerm_virtual_network" "test" {
    name                = "monreseau"
    address_space       = ["10.0.0.0/16"]
    location            = azurerm_resource_group.test.location
    resource_group_name = azurerm_resource_group.test.name
  }
-
+#creation of the managed disks
   resource "azurerm_managed_disk" "test" {
    count                = 2
    name                 = "datadisk_existing_${count.index}"
@@ -17,7 +17,7 @@
    create_option        = "Empty"
    disk_size_gb         = "20"
  }
-
+#creation of vms
  resource "azurerm_virtual_machine" "test" {
    count                 = 2
    name                  = "ubuntu${count.index}"
@@ -31,7 +31,7 @@
    # delete_os_disk_on_termination = true
 
    # Uncomment this line to delete the data disks automatically when deleting the VM
-   # delete_data_disks_on_termination = true
+   delete_data_disks_on_termination = true
 
    storage_image_reference {
      publisher = "Canonical"
