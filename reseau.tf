@@ -1,3 +1,4 @@
+#creation of the subnet
 resource "azurerm_subnet" "test" {
    name                 = "acctsub"
    resource_group_name  = azurerm_resource_group.test.name
@@ -5,6 +6,7 @@ resource "azurerm_subnet" "test" {
    address_prefixes     = ["10.0.2.0/24"]
  }
 
+#creation of the network interfaces
  resource "azurerm_network_interface" "test" {
    count               = 2
    name                = "acctni${count.index}"
