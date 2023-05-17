@@ -19,6 +19,7 @@
    }
  }
 
+#creation of backend pool
  resource "azurerm_lb_backend_address_pool" "test" {
    loadbalancer_id     = azurerm_lb.test.id
    name                = "BackEndAddressPool"
